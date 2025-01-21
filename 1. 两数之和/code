@@ -2,6 +2,9 @@
 #include<unordered_map>
 #include<vector>
 using namespace std;
+
+//通过哈希映射，来保存每一个数对应的一对另一个数，每次只需查找这个map（时间复杂度O（1））就行了，而不用遍历整个数组。
+
 class Solution{
 public:
 
@@ -16,8 +19,9 @@ public:
         for(int i=0;i<nums.size();i++){
             int different=target-nums[i];
             if(map.find(different)!=map.end()){
-             return {map[different],i};
+             return {map[different],i};//返回对应位置
             }
+            //每一个都要存入map中，使用i为索引（当前位置），返回也是返回其位置
             map[nums[i]]=i;
         }
         return {};
