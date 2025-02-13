@@ -18,16 +18,34 @@ public:
 
             }
         }
+        return step;
+    }
+    int jump2(vector<int>& nums){
+        //从最后开始往前走，每次找最大的跳，怎么知道是不是最大的呢，从前往后遍历，能跳直接就停了
 
+        int step=0;
+        int position=nums.size()-1;
+        while(position>0){//position一跳一跳往前走，不是一步一步挪
+            for(int i=0;i<position;i++){//从前开始，一旦能够到，那么直接跳，这就是最远的距离，再往后都没这么远的了
+             if(i+nums[i]>=position){
+                 step++;
+                 position=i;
+                 break;
+             }
+            }
+        }
         return step;
 
+
     }
+
 };
+
 int main(){
 Solution solution;
 
 vector<int>a(5);
 a={2,3,1,1,4};
-cout<<solution.jump(a)<<endl;
+cout<<solution.jump2(a)<<endl;
 
 }
