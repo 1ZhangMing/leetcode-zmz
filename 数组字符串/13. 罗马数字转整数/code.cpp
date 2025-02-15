@@ -14,7 +14,7 @@ private:
             {'M',1000}
     };
 public:
-    int romanToInt(string s) {
+    int romanToInt(string s) {//《当前位置的元素比下个位置的元素小，就减去当前值，否则加上当前值》
         int ans=0;
         for(int i=0;i<s.size()-1;i++){
             if(mapaa[s[i]]<mapaa[s[i+1]]){
